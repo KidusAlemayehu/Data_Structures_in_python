@@ -58,8 +58,8 @@ def main():
             if stack.isEmpty():
                 print('Stack is empty')
                 continue
+            print('{} is removed successfully'.format(stack.items[stack.peek]))
             stack.pop()
-            print('removed successfully')
         elif ch == 4:
             print(" items in the stack")
             stack.display()
