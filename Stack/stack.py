@@ -7,14 +7,10 @@ class Stack:
         self.limit = limit
         
     def push(self, item):
-        if self.isFull():
-            return f'Stack is Full'
         self.peek += 1
         return self.items.append(item)
     
     def pop(self):
-        if self.isEmpty():
-            return f'Stack is already empty'
         self.peek += 1
         return self.items.pop()
 
@@ -24,7 +20,7 @@ class Stack:
         return False
 
     def isFull(self):
-        if self.peek == self.limit:
+        if self.peek == self.limit - 1:
             return True
         return False
 
@@ -52,10 +48,16 @@ def main():
             stack = Stack(limit)
             print('created successfully')
         elif ch == 2:
+            if stack.isFull():
+                print('Stack is Full')
+                continue
             item = input("enter the item: ")
             stack.push(item)
             print('{} added successfully' .format(item))
         elif ch == 3:
+            if stack.isEmpty():
+                print('Stack is empty')
+                continue
             stack.pop()
             print('removed successfully')
         elif ch == 4:
